@@ -1,0 +1,8 @@
+.vscode
+*.aux
+*.tes
+*.log
+*.fls
+*fdb_latexmk
+*.synctex*
+.~lock.*
