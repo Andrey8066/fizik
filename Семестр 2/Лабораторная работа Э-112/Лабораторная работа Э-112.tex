@@ -262,4 +262,161 @@
         \label{eq:voltageWithoutSideForce}
         U_\text{1,2} = \phi_1 - \phi_2.
     \end{equation} 
+
+    \subsubsection{Закон Ома в интегральной форме}
+
+    Экспреиментально установлено что сила тока прямо пропорциональна падени. напряжения U и обратно пропорциональна сопротивлению R в проводниках: \\
+    
+    \begin{equation}
+    \label{eq:ohmsRule}
+    I = \frac{U}{R}
+    \end{equation}
+
+    Если участок цепи не содержит источника ЭДС то он называется однородным и закон ома имеет для него следующий вид :
+    \begin{figure}
+        \centering
+        \label{fig:homologicCurcuitOhmsRule}
+        \includegraphics{homologicCurcuit}
+        \caption{}
+    \end{figure}
+
+    \begin{equation}
+    \label{eq:homologicCurcuitOhmsRule}
+    I = \frac{\phi_1 - \phi_2}{R}
+    \end{equation}
+
+    Участок содержащий ЭДС называется неоднородным, для него закон ома будет иметь следующий вид :
+    
+    \begin{figure}
+    \centering
+    \label{fig:geterologicCurcuitOhmsRule}
+    \includegraphics{geterologicCurcuit}
+    \caption{}  
+    \end{figure}
+
+    \begin{equation}
+        \label{eq:geterologicCurcuitOhmsRule}
+        I = \frac{\phi_1 - \phi_2 + \varepsilon}{R+r}
+    \end{equation}
+
+    В приведенных  выше уравнениях $\epsilon$ - ЭДС источника, r - его внутреннее сопротивление, R - сопротивление участка цепи.\\
+
+    В замкнутой цепи Уравнение примет следующий вид:
+
+    \begin{figure}
+        \centering
+        \label{fig:closedCurcuitOhmsRule}
+        \includegraphics{closedCurcuit}
+        \caption{}
+    \end{figure}
+    
+    \begin{equation}
+        \label{eq:closedCurcuitOhmsRule}
+        I = \frac{\varepsilon}{R+r}
+    \end{equation}
+
+    Величина сопротивления R зависит от физических характеристик проводника и задается следующим выражением:
+
+    \begin{equation}
+        \label{eq:resistance}
+        I = \rho\frac{l}{S},
+    \end{equation}
+
+    где l - длина проводника, S - его попереченое сечение, $\rho$ - его удельное электричекое сопротивление. 
+
+    Значение удельного сопротивления зависит от природы вещества и его температуры. Для чистых металлов оно задается следующим выражением $\rho = \rho_0(1 + t\alpha)$, где $\rho_0$ - удельное электричекое сопротивление материала при $\textdegree{0^\circ}$C, t -температура вещества, а $\alpha$ - температурный коэффициент сопротивления. \\
+
+    \subsubsection{Закон Ома в дифференциальной форме}
+
+    Найдем связь между вектором плотности тока $\vec{j}$ и напряженностью поля $\vec{E}$ в некоторой точке М изотропного проводника \ref{fig:isotropicConductor} \\
+
+    \begin{figure}
+        \centering
+        \label{fig:isotropicConductor}
+        \includegraphics{isotropicConductor}
+        \caption{}
+    \end{figure}
+
+    Для этого выделим в окрестности этой точки элементарный объем в виде прямого цилиндра, образующие которого параллельны вектору $\vec{j}$.
+
+    Положительные носители заряда в каждой точке изотропного проводника движутся в направлении вектора $\vec{E}$.
+
+    Тогда  сила тока в этом объеме $I = jdS$. Его сопротивление $R = \rho\frac{dl}{dS}$. Напряжение в этом объеме $U = Edl$. Используя закон Ома получим:
+
+    \begin{equation}
+    \label{eq:elctricForceInDifForm}
+    I = \frac{U}{R} = jdS = \frac{1}{\rho}EdS
+    \end{equation}
+
+    Отсюда
+
+    \begin{equation}
+        \label{eq:densityModuleDifForm}
+        j = \frac{1}{\rho}E
+        \end{equation}
+
+    В векторной форме 
+
+    \begin{equation}
+        \label{eq:densityVectorDifForm}
+        \vec{j} = \frac{1}{\rho}\vec{E} = \sigma\vec{E}
+        \end{equation}
+    
+    где $\sigma = \frac{1}{\rho}$ - удельная электрическая проводимость.
+
+    Формула \ref{eq:densityModuleDifForm} выражает собой закон Ома в дифференциальной форме. для неоднородного участка цепи он примет следующий вид:
+
+    \begin{equation}
+        \label{eq:densityVectorDifFormInisotropicConductor}
+        \vec{j} = \frac{1}{\rho}\vec{E} = \sigma(\vec{E} + \vec{E^\text{*}})
+        \end{equation}
+
+    \subsubsection{Закон Джоуля-Ленца}
+
+    При прохождение тока по проводнику, проводник нагревается.Джоуль и независимо от него Ленц обнаружили экспериментально, что количество выделяющегося в проводнике тепла пропорционально его сопротивлению, квадрату силы тока и времени
+    \begin{equation}
+        \label{eq:djouleLenzRule}
+        Q = RI^2t
+        \end{equation}
+
+    Если сила тока изменяется  со временем, то закон примет следующую форму
+    
+    \begin{equation}
+        \label{eq:djouleLenzRuleIntForm}
+        Q = \int\limits_{0}^{t}RI^2dt
+        \end{equation}
+
+        Нагревание проводника происходит за счет работы, совершаемой силами поля над носителями тока.
+
+        Воспользовавшись законом Ома (\ref{eq:ohmsRule}) для Q можно получить следующее выражение:
+
+        \begin{equation}
+            \label{eq:djouleLenzRuleUsingOhmsRule}
+            Q = \int\limits_{0}^{t}UIdt = \int\limits_{0}^{t}\frac{U^2}{R}dt
+            \end{equation}
+
+        Тогда мощность тока 
+
+        \begin{equation}
+            \label{eq:electricityPower}
+            N = \frac{dQ}{dt} = I^2R =  UI = \frac{U^2}{R}
+            \end{equation}
+            \subsubsection{Анализ работы источника постоянного тока}
+            Согласно закону Ома, сила тока в замкнутой цепи, определяется по формуле (\ref{eq:closedCurcuitOhmsRule}). Перепишем это соотношение в виде
+
+            \begin{equation}
+                \label{eq:tensionInClosedCurcuit}
+                IR + Ir = \varepsilon
+                    \centering{\text{ или }}
+                U_1 = \varepsilon - Ir
+                \end{equation}
+                где $U_1$ – падение напряжения во внешней цепи. Из (\ref{eq:tensionInClosedCurcuit}) следует, что зависимость падения напряжения на внешней нагрузке от тока в цепи является линейной функцией. Ее график, построенный в координатах (I,U1 ), отсекает на оси напряжений отрезок, равный ЭДС источника тока, а на оси тока – отрезок, равный току короткого замыкания источника. Угловой коэффициент графика при этом численно равен внутреннему сопротивлению источника тока.
+
+                Полезная мощность – это мощность, выделяемая во внешней цепи и она равна:
+                \begin{equation}
+                    \label{eq:tensionInClosedCurcuit}
+                    IR + Ir = \varepsilon
+                        \centering{\text{ или }}
+                    U_1 = \varepsilon - Ir
+                    \end{equation}
 \end{document}
