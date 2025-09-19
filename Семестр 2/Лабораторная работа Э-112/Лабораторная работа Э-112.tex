@@ -16,7 +16,7 @@
 \usepackage{array}
 \usepackage{cellspace}
 \usepackage{pgfplots}
-
+\usepackage{pgfplotstable}
 \setlength{\cellspacetoplimit}{20pt}
 \setlength{\cellspacebottomlimit}{20pt}
 
@@ -25,7 +25,7 @@
 \geometry{
   a4paper,
   left=30mm,
-  right=10mm,
+  right=20mm,
   top=20mm,
   bottom=20mm
 }
@@ -470,7 +470,7 @@ $\varepsilon$ измеряется в вольтах.
   \eta = \frac{N_1}{N} = \frac{\varepsilon^2R(R+r)}{(R+r)^2\varepsilon^2} = \frac{R}{R+r}
 \end{equation}
 
-При R = r $\eta = 0.5$. С увелтчением сопротивления в цепи кпд источника будет расти.
+При R = r $\eta = 0.5$. С увеличением сопротивления в цепи кпд источника будет расти.
 
 \chapter{Выполнение работы}
 
@@ -478,7 +478,7 @@ $\varepsilon$ измеряется в вольтах.
 
 В цепь был включе высокоомный источник постоянного тока и соответствующий ему резистор номиналом 470 Ом.
 
-В результате измерений были получены следующие данные (Приложение \ref{chapter}).
+В результате измерений были получены следующие данные (Приложение \ref{chp:highoms}).
 
 \begin{tikzpicture}
   \begin{axis}[
@@ -602,7 +602,7 @@ $\varepsilon$ измеряется в вольтах.
 \section{Исследование характеристик низкоомного источника}
 В цепь был включе высокоомный источник постоянного тока и соответствующий ему резистор номиналом 470 Ом.
 
-В результате измерений были получены следующие данные (Приложение \ref{chapter}).
+В результате измерений были получены следующие данные (Приложение \ref{chp:lowohms}).
 
 \begin{tikzpicture}
   \begin{axis}[
@@ -710,6 +710,8 @@ $\varepsilon$ измеряется в вольтах.
 
 \section{Выод}
 
+В результате проведенных экспериментов мы убедились в том,  что максимальная мощность источника будет достикаться при равенстве сопротивления полезной нагрузки внутреннему сопротивлению источника. Полученные опытным путем значения мощности были равны, с учетом погрешности, данным полученным в ходе вычислений.
+
 \chapter{Контрольные вопросы}
 \section{Что такое сила тока? В каких единицах измеряется?}
 
@@ -725,20 +727,17 @@ Cила тока I в проводнике пропорциональна пад
 
 Полезная мощность – это мощность, выделяемая во внешней цепи и она равна:
 \begin{equation}
-  \label{eq:usefulCurcuitPower}
   N_1 = I^2R = IU_1 = \frac{\varepsilon^2R}{(R+r)^2}
 \end{equation}
 
 Мощность выделяемая в источнике:
 \begin{equation}
-  \label{eq:usefulSourcePower}
   N_2 = I^2r = IU_2 = \frac{\varepsilon^2r}{(R+r)^2}
 \end{equation}
 где $U_2$ - падение напряжения внутри источника.
 
 Полная мощность:
 \begin{equation}
-  \label{eq:usefulPower}
   N = N_1 +N_2 = I\varepsilon = \frac{\varepsilon^2}{(R+r)}
 \end{equation}
 
@@ -764,9 +763,14 @@ Cила тока I в проводнике пропорциональна пад
 
 \section{Почему достижение КПД источника, близкого к единице, не имеет практического значения?}
 
+Для достижения кпд равного необходимо, чтобы внешней сопротивление полезной нагрузки было многократно больше, чем внутреннее сопротивление источника, а это отричательно скажется на качествах самой цепи.
+
 \appendix
-\chapter{Приложения }
-\label{chapter}
+\titleformat{\chapter}[block]{\huge\bfseries\centering}{}{0pt}{}
+
+\chapter{Приложение \thechapter}
+\label{chp:highoms}
+
 \begin{table}[H]
   \centering
   \footnotesize
@@ -813,5 +817,52 @@ Cила тока I в проводнике пропорциональна пад
   \end{tabular}
   \caption{Результаты измен для высокоомного источника}
   \label{tab:highoms}
+\end{table}
+
+\chapter{Приложение \thechapter}
+\label{chp:lowohms}
+
+\begin{table}[H]
+  \centering
+  \footnotesize
+  \begin{tabular}{|l|l|l|l|l|}
+    \hline
+    & \textbf{U, В}            & \textbf{I, А}             & \textbf{R=U/I, Ом}          & \textbf{P=U·I, Вт}         \\ \hline
+    \textbf{1}  & 2,2 & 1,36 & 1,618  & 2,992 \\ \hline
+    \textbf{2}  & 2,2 & 1,36 & 1,618  & 2,992 \\ \hline
+    \textbf{3}  & 2,5 & 1,16 & 2,155  & 2,9   \\ \hline
+    \textbf{4}  & 2,7 & 1,05 & 2,571  & 2,835 \\ \hline
+    \textbf{5}  & 2,9 & 0,9  & 3,222  & 2,61  \\ \hline
+    \textbf{6}  & 3,0 & 0,85 & 3,529  & 2,55  \\ \hline
+    \textbf{7}  & 2,9 & 0,84 & 3,452  & 2,436 \\ \hline
+    \textbf{8}  & 3,2 & 0,75 & 4,267  & 2,4   \\ \hline
+    \textbf{9}  & 3,3 & 0,71 & 4,648  & 2,343 \\ \hline
+    \textbf{10} & 3,3 & 0,66 & 5,0    & 2,178 \\ \hline
+    \textbf{11} & 3,4 & 0,64 & 5,313  & 2,176 \\ \hline
+    \textbf{12} & 3,4 & 0,62 & 5,484  & 2,108 \\ \hline
+    \textbf{13} & 3,4 & 0,6  & 5,667  & 2,04  \\ \hline
+    \textbf{14} & 3,5 & 0,56 & 6,25   & 1,96  \\ \hline
+    \textbf{16} & 3,4 & 0,6  & 5,667  & 2,04  \\ \hline
+    \textbf{17} & 3,5 & 0,56 & 6,25   & 1,96  \\ \hline
+    \textbf{18} & 3,5 & 0,55 & 6,364  & 1,925 \\ \hline
+    \textbf{19} & 3,5 & 0,52 & 6,731  & 1,82  \\ \hline
+    \textbf{20} & 3,4 & 0,53 & 6,415  & 1,802 \\ \hline
+    \textbf{21} & 3,5 & 0,48 & 7,292  & 1,68  \\ \hline
+    \textbf{22} & 3,6 & 0,46 & 7,826  & 1,656 \\ \hline
+    \textbf{23} & 3,6 & 0,48 & 7,5    & 1,728 \\ \hline
+    \textbf{24} & 3,7 & 0,42 & 8,81   & 1,554 \\ \hline
+    \textbf{25} & 3,7 & 0,46 & 8,043  & 1,702 \\ \hline
+    \textbf{26} & 3,7 & 0,41 & 9,024  & 1,517 \\ \hline
+    \textbf{27} & 3,7 & 0,42 & 8,81   & 1,554 \\ \hline
+    \textbf{28} & 3,8 & 0,38 & 10,0   & 1,444 \\ \hline
+    \textbf{29} & 3,7 & 0,4  & 9,25   & 1,48  \\ \hline
+    \textbf{30} & 3,7 & 0,38 & 9,737  & 1,406 \\ \hline
+    \textbf{31} & 3,8 & 0,37 & 10,27  & 1,406 \\ \hline
+    \textbf{32} & 3,9 & 0,31 & 12,581 & 1,209 \\ \hline
+    \textbf{33} & 3,8 & 0,34 & 11,176 & 1,292 \\ \hline
+    \textbf{34} & 3,8 & 0,33 & 11,515 & 1,254 \\ \hline
+  \end{tabular}
+  \caption{Результаты измен для низкоомного источника}
+  \label{tab:lowohms}
 \end{table}
 \end{document}

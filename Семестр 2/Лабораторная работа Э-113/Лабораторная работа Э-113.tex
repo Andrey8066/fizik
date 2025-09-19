@@ -1,0 +1,169 @@
+\documentclass[14pt, a4paper]{extreport}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[T2A]{fontenc}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage[russian]{babel}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{array}
+\usepackage{cellspace}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\setlength{\cellspacetoplimit}{20pt}
+\setlength{\cellspacebottomlimit}{20pt}
+
+\onehalfspacing
+
+\geometry{
+  a4paper,
+  left=30mm,
+  right=20mm,
+  top=20mm,
+  bottom=20mm
+}
+
+\setlength{\parindent}{1.25cm}
+
+\graphicspath{ {images/} }
+\captionsetup[figure]{
+  labelsep=period,
+  justification=centering
+}
+
+\renewcommand{\figurename}{Рисунок}
+\renewcommand{\contentsname}{Оглавление}
+
+\titleformat{\chapter}[block]{\huge\bfseries\centering}{}{1em}{}
+\titleformat{\section}[block]{\normalsize\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}[block]{\normalsize\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\section}{0pt}{\parskip}{-\parskip}
+\titlespacing*{\subsection}{0pt}{\parskip}{-\parskip}
+\titlespacing{\chapter}{0pt}{0pt}{0pt}
+
+\begin{document}
+\begin{titlepage}
+  \begin{center}
+    \small
+    \underline{
+      \begin{minipage}{0.2\textwidth}
+        \centering
+        \includegraphics[width=3cm]{BMSTU logo}
+      \end{minipage}
+      \hfill
+      \begin{minipage}{0.8\textwidth}
+        \begin{center}
+
+          \textbf{Министерство науки и высшего образования Российской Федерации
+            Федеральное государственное бюджетное образовательное учреждение высшего образования «Московский государственный технический университет имени Н.Э. Баумана национальный исследовательский университет»
+          (МГТУ им. Н.Э. Баумана)}
+        \end{center}
+      \end{minipage}
+
+    }
+
+    \vspace{7cm}
+    \Large
+    \textbf{Лабораторная работа Э-113} \\
+    "Определение емкости коденсатора по осцилограмме его разряда через резистор"\\
+    \vspace{5cm}
+    \normalsize
+    \begin{tabular}{p{8cm}p{6cm}}
+      \textbf{Студент группы ИУ1-31Б} & \hrulefill \\
+      & «\underline{\hspace{1.5cm}}»\underline{\hspace{2.5cm}}2025 г. \\
+      & \\
+      \textbf{Преподаватель} & \hrulefill \\
+      & «\underline{\hspace{1.5cm}}»\underline{\hspace{2.5cm}}2025 г. \\
+    \end{tabular}
+    \vfill{\Large{Москва, 2025}}
+  \end{center}
+\end{titlepage}
+
+\tableofcontents
+\addcontentsline{toc}{chapter}{\numberline{0}\contentsname}
+\newpage
+
+\chapter{Конспект}
+\section{Цели и задачи работы}
+\textbf{Цель работы} - экспериментальное изучение законов электростатики, в частности, раздела «Проводники в электрическом поле».
+
+\textbf{Задачи работы} - изучение процесса разряда конденсатора, измерение постоянной времени цепи и емкости конденсатора. Приобретение навыков работы с электроаппаратурой и электроизмерительными приборами.
+
+\section{Оборудование}
+Лабораторный стенд (\ref{fig:scheme}) - схема на магнитной основе, собираемая из пластиковых монтажных элементов, включая сопротивления, емкость, источник ЭДС, кнопки-выключатели для замыкания цепи и монтажные перемычки.
+К приборам и принадлежностям относятся также компьютер с необходимым программным обеспечением, осциллографический датчик напряжения для регистрации электрической разности потенциалов на активном сопротивлении и соединительный кабель для подключения датчика к компьютеру.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{scheme}
+  \caption{}
+  \label{fig:scheme}
+\end{figure}
+
+\section{Теоритическая часть}
+При разрядке конденсатора на резистор в отсутствии источника ЭДС  в контуре сумма падений напряжений равна нулю.
+\begin{equation}
+  U_C+U_R = 0
+  \label{eq:tensionSum}
+\end{equation}
+
+Учитывая очевидные соотношения:
+\begin{equation}
+  U_c = \frac{q}{C},\text{ } q = \int\limits_{0}^{t} Idt,\text{ } U_R = IR
+  \label{eq:default}
+\end{equation}
+
+Можно получить следующее уравнение
+\begin{equation}
+  \frac{1}{C}\int\limits_{0}^{t} Idt + IR = 0
+  \label{eq:tensionSumUpdated}
+\end{equation}
+где R - сопротивление резистора, I - ток в цепи, C - емкость конденсатора, q - заряд на обладках конденсатора.
+
+Продифферинцировав данное уравнение по времени и пронормировав его, получим:
+\begin{equation}
+  \frac{dI}{dt} + \frac{1}{RC}I = 0
+  \label{eq:diffEquation}
+\end{equation}
+
+Это уравнение будет иметь следующие решения:
+\begin{equation}
+  I = I_0e^\frac{t}{RC} = I_0e^\frac{t}{\tau}
+  \label{eq:solutions}
+\end{equation}
+
+В  этом уравнении введена замана $\tau = RC $ - постоянная времени разрядки конденсатора или интервал времени за которое начальный ток $I_0$ уменьшится в $e$ раз.
+
+Тогда измение заряда в интервале времени ($t_1$, $t_2$) будет иметь вид
+\begin{equation}
+  \Delta q = \int\limits_{t_1}^{t_2} Idr
+\end{equation}
+
+Зная падение напряжения на резисторе(по модулю оно равно падению напряжения на конденсаторе) в эти моменты, емкость конденсатора найдем из закона пропорциональности заряда падению напряжения.
+\begin{equation}
+  C = \frac{\Delta q}{\Delta U} = \frac{\int\limits_{t_1}{t_2} Idt}{U_1-U_2}
+  \label{eq:capacity}
+\end{equation}
+
+Другой способ измерения емкости конденсатора основан на знании времени разраядки конденсатора и сопротивления резистора. Измеряя по осцилограмме время $\tau$, в течение которого сила тока $I_0$ на конденсаторе стоновится меньше в $e$ раз , вычисляем емкость конденсатора по формуле:
+\begin{equation}
+  C = \frac{\tau}{R}
+  \label{eq:capacityFromTime}
+\end{equation}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{circuit}
+  \caption{Схема для измерения емкости конденсатора}
+  \label{}
+\end{figure}
+\section{Лабораторная установка}
+
+В состав лабораторной установки входят элементы, собранные в схему для исследования разрядки конденсатора. Для замыкания цепи зарядки конденсатора и для осуществления его разряда через резистор используются кнопки-выключатели без фиксации. Соединение элементов электрических цепей производится с помощью монтажных перемычек, а также с помощью гибких проводов со штекерными разъемами, которые применяются для включения в цепь элементов, варьируемых в ходе опыта. Ряд элементов схемы имеют на верхней поверхности гнезда для подключения штекеров, например, для присоединения измерительного кабеля осциллографического датчика напряжения к активному сопротивлению.
+\end{document}
