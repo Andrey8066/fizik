@@ -17,6 +17,7 @@
 \usepackage{cellspace}
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
+\usepackage{tocloft}
 \setlength{\cellspacetoplimit}{20pt}
 \setlength{\cellspacebottomlimit}{20pt}
 
@@ -39,7 +40,7 @@
 }
 
 \renewcommand{\figurename}{Рисунок}
-\renewcommand{\contentsname}{Оглавление}
+\renewcommand{\contentsname}{\centering Оглавление}
 
 \titleformat{\chapter}[block]{\huge\bfseries\centering}{}{1em}{}
 \titleformat{\section}[block]{\normalsize\bfseries}{\thesection}{1em}{}
@@ -47,6 +48,9 @@
 \titlespacing*{\section}{0pt}{\parskip}{-\parskip}
 \titlespacing*{\subsection}{0pt}{\parskip}{-\parskip}
 \titlespacing{\chapter}{0pt}{0pt}{0pt}
+
+\renewcommand{\cftbeforetoctitleskip}{-30pt}
+\renewcommand{\cftaftertoctitleskip}{-10pt}
 
 \begin{document}
 \begin{titlepage}
@@ -87,7 +91,6 @@
 \end{titlepage}
 
 \tableofcontents
-\addcontentsline{toc}{chapter}{\numberline{0}\contentsname}
 \newpage
 
 \chapter{Конспект}
