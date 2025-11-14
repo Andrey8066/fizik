@@ -1,0 +1,306 @@
+\documentclass[14pt, a4paper, twoside]{extreport}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[T2A]{fontenc}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage[russian]{babel}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{array}
+\usepackage{cellspace}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{tocloft}
+\usepackage{amsmath}
+\setlength{\cellspacetoplimit}{20pt}
+\setlength{\cellspacebottomlimit}{20pt}
+
+\onehalfspacing
+
+\geometry{
+  a4paper,
+  left=30mm,
+  right=20mm,
+  top=20mm,
+  bottom=20mm
+}
+
+\setlength{\parindent}{1.25cm}
+
+\graphicspath{ {images/} }
+\captionsetup[figure]{
+  labelsep=period,
+  justification=centering
+}
+
+\renewcommand{\figurename}{Рисунок}
+\renewcommand{\contentsname}{\centering Оглавление}
+
+\titleformat{\chapter}[block]{\huge\bfseries\centering}{}{1em}{}
+\titleformat{\section}[block]{\normalsize\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}[block]{\normalsize\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\section}{0pt}{\parskip}{-\parskip}
+\titlespacing*{\subsection}{0pt}{\parskip}{-\parskip}
+\titlespacing{\chapter}{0pt}{0pt}{0pt}
+
+\renewcommand{\cftbeforetoctitleskip}{-30pt}
+\renewcommand{\cftaftertoctitleskip}{-10pt}
+
+\begin{document}
+
+\begin{titlepage}
+  \begin{center}
+    \small
+    \underline{
+      \begin{minipage}{0.2\textwidth}
+        \centering
+        \includegraphics[width=3cm]{BMSTU logo}
+      \end{minipage}
+      \hfill
+      \begin{minipage}{0.8\textwidth}
+        \begin{center}
+
+          \textbf{Министерство науки и высшего образования Российской Федерации
+            Федеральное государственное бюджетное образовательное учреждение высшего образования «Московский государственный технический университет имени Н.Э. Баумана национальный исследовательский университет»
+          (МГТУ им. Н.Э. Баумана)}
+        \end{center}
+      \end{minipage}
+
+    }
+
+    \vspace{7cm}
+    \Large
+    \textbf{Лабораторная работа О-107} \\
+    "Измерение длины световой волны с помощью колец Ньютона"\\
+    \vspace{5cm}
+    \normalsize
+    \begin{tabular}{p{8cm}p{6cm}}
+      \textbf{Студент группы ИУ1-31Б} & \hrulefill \\
+      & «\underline{\hspace{1.5cm}}»\underline{\hspace{2.5cm}}2025 г. \\
+      & \\
+      \textbf{Преподаватель} & \hrulefill \\
+      & «\underline{\hspace{1.5cm}}»\underline{\hspace{2.5cm}}2025 г. \\
+    \end{tabular}
+    \vfill{\Large{Москва, 2025}}
+  \end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\chapter{Конспект}
+\section{Цель работы}
+Изучить явление интерференции света на установке для наблюдения колец Ньютона, определить радицс кривизны линзы и длину волны света.
+
+\section{Эксперементальное оборудование, приборы и принадлежности}
+Лабораторная установка показана на рисунке \ref{pic:labUst}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{labUst.png}
+  \end{center}
+  \caption{}
+  \label{pic:labUst}
+\end{figure}
+
+Части лабораторной установки :
+\begin{enumerate}
+  \item Оптическая скамья;
+  \item Стойка излучателя;
+  \item Оптический бокс;
+  \item Сдвижной экран;
+  \item Лазерный блок;
+  \item Линза;
+  \item Цифровой микроскоп расположенный в оптическом боксе;
+  \item USB-кабель для чтения данных;
+  \item Коммутационный блок.
+\end{enumerate}
+
+Оптическая схема установки представлена на рисунке \ref{pic:opticSchema}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{opticSchema.png}
+  \end{center}
+  \caption{}
+  \label{pic:opticSchema}
+\end{figure}
+
+Излучение лазера 1, пройдя через линзу 2, попадает в оптический бокс через входное окно 3, содержащее рассеивающий элемент. Излучение, отраженное от пластины 5, освещает сборку кольца Ньютона 4. Отраженный от нее свет проходит через пластину и попадает на микроскоп 6.
+
+\section{Теоретическая часть}
+\subsection{Интерференция}
+Сложение двух и более когерентных волн, в результате которого в одних точках пространства происходит увеличение, а в других - уменьшение амплитуды, называется интерференцией.
+
+Когерентные волны - волны с равной частотой и постоянной разностью начальных фаз. Источники таких волн - когерентные источники. Кроме того для наблюдения интерференции необходимо чтобы волны были поляризованы в одной плоскости.
+
+\subsection{Интерференция света при отражении от тонкой пластинки}
+Пусть на  прозрачную плоскопараллельную пластинку толщиной $d$ падает под углом $i$ пучок паралленых монохроматических лучей с длиной волны $\lambda$ (рисунок \ref{pic:interference}).
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{interference.png}
+  \end{center}
+  \caption{}
+  \label{pic:interference}
+\end{figure}
+Выделим лучи 1 и 2 этого. Луч 1 после предомления в точке A отражается в точке B и затем после предомленияв точке C интереверирует с отраженным в этой точке лучом 2. Оптическая разность хода лучей в отраженном свете будет равна
+\begin{equation}
+  \Delta = (AB + BC) n_{\text{пл}} - DC n_{\text{в}} + \lambda/2
+\end{equation}
+где $n_{\text{пл}}$ - показатель преломления вещества пластинки, а $n_{\text{в}}$ - показатель преломления воздуха, равный 1.
+
+Как следует из рисунка \ref{pic:interference} разность хода можно также выразить через толщину пластинки и угол падения
+
+\begin{equation}
+  \Delta = 2d\sqrt{n^2 - \sin^2{i}} + \frac{\lambda}{2}, \quad n = n_\text{пл}
+  \label{eq:raznHoda}
+\end{equation}
+
+Условия интерференционного минимума(максимума)
+\begin{align}
+  \Delta &= (2k)\frac{\lambda}{2} \text{- условие максимума}; \\
+  \Delta &= (2k+1)\frac{\lambda}{2} \text{- условие минимума};
+\end{align}
+
+В проходящем свете оптическая разность хода отличается от оптической разности для отраженного света на $\lambda/2$.Следовательно, максимумам интерференции в отраженном свете соответствуют минимумы интерференции в проходящем свете и наоборот.
+
+\section{Кольца Ньютона}
+
+Если линзу с малой кривизной поместить близко к плоской стекляянной пластине (рисунок \ref{pic:newtonsCircles}), то между линзой и пластиной около точки соприкасновения образуется воздушный клин.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{newtonsCircles.png}
+  \end{center}
+  \caption{}
+  \label{pic:newtonsCircles}
+\end{figure}
+
+Линза освещвается лучами, падающими нормально к поверхности воздушного клина. Лучи отраженные от поверхности линзы и пластины когерентны, поэтому они интерферируют. Интерференционные полосы, возникающие при этом имеют вид окружностей (рисунок \ref{pic:circles}).
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.3\textwidth]{circles.png}
+  \end{center}
+  \caption{}
+  \label{pic:circles}
+\end{figure}
+
+Такие кольца называются кольцами Ньютона. В центре находится темное пятно(минимум нулевого порядка). Оно окружено системой колец ширина и интенсивность которых убывают при удалении от центра.
+
+\subsection{Рассчет радиуса темных и светлых колец интерференционной картины}
+Условие (\ref{eq:raznHoda}) запишется в этом случае:
+
+\begin{equation}
+  \Delta = 2d + \lambda/2
+\end{equation}
+где пока преломления воздуха равен единице, а член $\lambda/2$ указывает сдвиг на $\pi$  при отражении света.
+
+Светлые кольца соответствуют толщинам воздушной прослойки $d$, для которых
+
+\begin{equation}
+  \Delta = 2d + \frac{\lambda}{2} =  2k\frac{\lambda}{2}, \qquad k=1,2,\dots
+  \label{eq:whiteCircle}
+\end{equation}
+
+Для темных колец
+
+\begin{equation}
+  \Delta = 2d + \frac{\lambda}{2} = (2k+1)\frac{\lambda}{2}, \qquad k=0,1,2,\dots
+  \label{eq:blackCircle}
+\end{equation}
+
+Из рисунка \ref{pic:newtonsCircles} видно, что радиус кольца Ньютона $r_k$, радиус кривизны линзы $R$ и толщина воздушной прослойки $d_k$ связаны соотношением
+\begin{equation}
+  r_k^2 = R^2 - (R - d_k)^2
+\end{equation}
+что эквивалентно
+\begin{equation}
+  r_k^2 \approx 2Rd_k
+  \label{eq:circleRadius}
+\end{equation}
+
+Из (\ref{eq:whiteCircle}) выразим $d_k$
+\begin{equation}
+  d_k = (2k - 1) \frac{\lambda}{4}
+\end{equation}
+
+Отсюда
+\begin{equation}
+  r_k^2 = (2k -1)\frac{\lambda R}{2}
+\end{equation}
+
+Таким образом радиус светлых колец равен
+
+\begin{equation}
+  r_k = \sqrt{(2k -1)\frac{\lambda R}{2}}
+\end{equation}
+
+Аналогично для темных колец
+
+\begin{equation}
+  r_k^2 = k\lambda R
+\end{equation}
+
+\begin{equation}
+  r_k = \sqrt{k\lambda R}
+\end{equation}
+
+\subsection{Кольца Ньютона при наличии зазора между линзой и пластинкой}
+
+Толщина воздушного слоя в таком случае равна $d + a$. Тогда оптическая разность хода равна :
+\begin{equation}
+  \Delta = 2(d + a) + \lambda/2 = 2d + 2a + \lambda/2
+  \label{eq:realNewtonCircle}
+\end{equation}
+
+Из (\ref{eq:realNewtonCircle}) следует что центр картины  в зависимости от зазора $a$ может быть как светлым так и темным.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{realNewtonsCircles.png}
+  \end{center}
+  \caption{}
+  \label{pic:realNewtonCircles}
+\end{figure}
+
+Разности хода примут следующий вид:
+Для светлых колец:
+\begin{equation}
+  \Delta = 2(d + a) + \frac{\lambda}{2} = 2k\frac{\lambda}{2}, \qquad k=1,2,\dots
+\end{equation}
+
+Для темных колец:
+\begin{equation}
+  \Delta = 2(d + a) + \frac{\lambda}{2} = (2k+1)\frac{\lambda}{2}, \qquad k=0,1,2,\dots
+\end{equation}
+
+Найдем $d_k$ для темных колец
+\begin{equation}
+  2(d_k + a) + \frac{\lambda}{2} = (2k + 1)\frac{\lambda}{2}
+\end{equation}
+\begin{equation}
+  d_k = k\frac{\lambda}{2} - a
+\end{equation}
+
+Подставляя в (\ref{eq:circleRadius}) получим
+\begin{equation}
+  r_k^2 = 2R(k\frac{\lambda}{2} - a) = Rk\lambda - Ra
+\end{equation}
+
+Аналогично для светлых колец
+\begin{equation}
+  d_k = (2k-1)\frac{\lambda}{4} - a
+\end{equation}
+
+\begin{equation}
+  r_k^2 = 2R((2k-1)\frac{\lambda}{4} - a) = \frac{R\lambda(2k+1)}{2} - 2Ra
+\end{equation}
+\end{document}
