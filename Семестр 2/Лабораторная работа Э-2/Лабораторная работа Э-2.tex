@@ -719,10 +719,95 @@
   \nu = \frac{1}{T} = \frac{1}{4.807\cdot 10^{(-3)} } = 208.044 \text{Гц}
 \end{equation}
 
-Амплитуда синусоиды
-\begin{equation}
-  A = \frac{y}{2}b = \frac{0.056}{2} 5 = 1,4 \text{мВ}
-\end{equation}
+\section{Фигуры Лиссажу}
+\subsection{Результаты экспериментов}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    № опыта & $\nu_x$:$\nu_y$ & Вид фигуры & Параметры \\
+    \hline
+    1 & 1:1 & \includegraphics[width=0.15\textwidth]{lissajous1-1.jpg} & Эллипс/окружность \\
+    \hline
+    2 & 2:1 & \includegraphics[width=0.15\textwidth]{lissajous1-2.jpg} & "Восьмерка" \\
+    \hline
+    3 & 3:1 & \includegraphics[width=0.15\textwidth]{lissajous1-3.jpg} & Сложная фигура \\
+    \hline
+  \end{tabular}
+  \caption{Наблюдаемые фигуры Лиссажу}
+\end{table}
+
+\subsection{Анализ результатов}
+
+\subsubsection{Опыт 1 ($\nu_x : \nu_y = 1:1$)}
+\begin{itemize}
+  \item \textbf{Наблюдается:} эллипс, окружность или наклонная прямая
+  \item \textbf{Форма зависит от разности фаз $\Delta\phi = \phi_2 - \phi_1$:}
+    \begin{itemize}
+      \item $\Delta\phi = 0$: прямая $y = \frac{B}{A}x$ (I и III квадранты)
+      \item $\Delta\phi = \pi$: прямая $y = -\frac{B}{A}x$ (II и IV квадранты)
+      \item $\Delta\phi = \frac{\pi}{2}$: эллипс $\frac{x^2}{A^2} + \frac{y^2}{B^2} = 1$
+      \item $A = B$, $\Delta\phi = \frac{\pi}{2}$: окружность $x^2 + y^2 = A^2$
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Опыт 2 ($\nu_x : \nu_y = 2:1$)}
+\begin{itemize}
+  \item \textbf{Наблюдается:} фигура в виде "восьмерки" или "скобки"
+  \item \textbf{Объяснение:} за время одного периода колебаний по Y, по X совершается два полных периода
+  \item Фигура более сложной формы, замкнутая
+\end{itemize}
+
+\subsubsection{Опыт 3 ($\nu_x : \nu_y = 3:1$)}
+\begin{itemize}
+  \item \textbf{Наблюдается:} сложная фигура с тремя петлями
+  \item \textbf{Объяснение:} за время одного периода по Y, по X совершается три полных периода
+  \item Форма зависит от начальных фаз колебаний
+\end{itemize}
+
+\subsection{Определение параметров сигналов}
+
+\subsubsection{Определение соотношения частот}
+\begin{itemize}
+  \item Провести горизонтальную и вертикальную прямые, пересекающие фигуру
+  \item Посчитать число пересечений:
+    \begin{itemize}
+      \item $n_x$ -- с горизонтальной прямой
+      \item $n_y$ -- с вертикальной прямой
+    \end{itemize}
+  \item \textbf{Формула для соотношения частот:}
+    \[
+      \frac{\nu_y}{\nu_x} = \frac{n_x}{n_y}
+    \]
+\end{itemize}
+
+\subsubsection{Определение разности фаз}
+\begin{itemize}
+  \item Для случая $\nu_x = \nu_y$ по форме эллипса можно определить $\Delta\phi$:
+    \[
+      \sin(\Delta\phi) = \frac{y_0}{B} = \frac{x_0}{A}
+    \]
+    где $y_0$, $x_0$ -- координаты пересечения эллипсом осей
+\end{itemize}
+
+\subsubsection{Определение амплитуд}
+\begin{itemize}
+  \item По максимальным отклонениям по осям X и Y определяются амплитуды сигналов:
+    \[
+      A = x_{\text{max}}, \quad B = y_{\text{max}}
+    \]
+\end{itemize}
+
+\subsection{Выводы}
+
+\begin{enumerate}
+  \item Фигуры Лиссажу позволяют определять соотношение частот двух гармонических сигналов
+  \item При равенстве частот можно определить разность фаз между сигналами
+  \item Форма фигуры зависит от соотношения частот, амплитуд и разности фаз
+  \item Метод особенно полезен для сравнения частот высокочастотных сигналов
+  \item Точность определения частоты повышается с увеличением числа пересечений фигуры с осями
+\end{enumerate}
 
 \chapter{Контрольные вопросы}
 
